@@ -1,0 +1,49 @@
+@layer components {
+  .searchContainer {
+    @apply mb-4;
+  }
+
+  .tableWrapper {
+    @apply overflow-x-auto;
+  }
+
+  .table {
+    @apply w-full border-collapse;
+  }
+
+  .table thead {
+    @apply bg-gray-200;
+  }
+
+  .table th {
+    @apply px-4 py-2 text-left font-semibold text-gray-700 border-b;
+  }
+
+  .table td {
+    @apply px-4 py-2 border-b border-gray-200;
+  }
+
+  .table tbody tr:hover {
+    @apply bg-gray-50;
+  }
+
+  .table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .noData {
+    @apply text-center text-gray-500 py-4;
+  }
+
+  .pagination {
+    @apply flex justify-between items-center mt-4 p-4 border-t;
+  }
+
+  .paginationButton {
+    @apply px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition;
+  }
+
+  .pageInfo {
+    @apply text-gray-700 font-medium;
+  }
+}

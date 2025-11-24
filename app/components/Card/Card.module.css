@@ -1,0 +1,13 @@
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
+  }
+
+  .title {
+    @apply text-lg font-semibold text-gray-800 mb-4;
+  }
+
+  .content {
+    @apply w-full;
+  }
+}
