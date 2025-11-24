@@ -20,7 +20,28 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed ${className}`}
+      style={{
+        background: disabled
+          ? "var(--muted, #6b7280)"
+          : "var(--primary, #2563eb)",
+        color: "#ffffff",
+        padding: "0.5rem 1.5rem",
+        borderRadius: "0.5rem",
+        fontWeight: "600",
+        border: "none",
+        cursor: disabled ? "not-allowed" : "pointer",
+        transition: "all 0.2s",
+        opacity: disabled ? 0.6 : 1,
+      }}
+      onMouseEnter={(e) => {
+        if (!disabled) {
+          e.currentTarget.style.filter = "brightness(1.1)";
+        }
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.filter = "brightness(1)";
+      }}
+      className={className}
     >
       {children}
     </button>

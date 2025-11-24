@@ -9,10 +9,20 @@ interface CardProps {
 const Card = ({ children, title, className = "" }: CardProps) => {
   return (
     <div
-      className={`bg-white rounded-lg shadow-md p-6 border border-gray-200 ${className}`}
+      className={`rounded-lg shadow-md p-6 ${className}`}
+      style={{
+        background: "var(--card-bg, #ffffff)",
+        color: "var(--foreground, #171717)",
+        border: "1px solid var(--card-border, #e5e7eb)",
+      }}
     >
       {title && (
-        <h2 className="text-lg font-semibold text-gray-800 mb-4">{title}</h2>
+        <h2
+          style={{ color: "var(--foreground, #171717)" }}
+          className="text-lg font-semibold mb-4"
+        >
+          {title}
+        </h2>
       )}
       <div className="w-full">{children}</div>
     </div>

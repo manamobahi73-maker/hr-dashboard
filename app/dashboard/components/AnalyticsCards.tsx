@@ -61,27 +61,51 @@ const AnalyticsCards = ({ users }: AnalyticsCardsProps) => {
   return (
     <>
       <Card title="Age Distribution">
-        <div className="w-full h-full">
+        <div style={{ width: "100%", height: "100%" }}>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={ageRangeData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="range" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="count" fill="#3b82f6" />
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="var(--card-border, #e5e7eb)"
+              />
+              <XAxis dataKey="range" stroke="var(--foreground, #171717)" />
+              <YAxis stroke="var(--foreground, #171717)" />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "var(--card-bg, #ffffff)",
+                  border: `1px solid var(--card-border, #e5e7eb)`,
+                  color: "var(--foreground, #171717)",
+                }}
+              />
+              <Bar dataKey="count" fill="var(--primary, #2563eb)" />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </Card>
 
       <Card title="Top Cities">
-        <div className="w-full h-full">
+        <div style={{ width: "100%", height: "100%" }}>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={cityData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="city" angle={-45} textAnchor="end" height={80} />
-              <YAxis />
-              <Tooltip />
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="var(--card-border, #e5e7eb)"
+              />
+              <XAxis
+                dataKey="city"
+                angle={-45}
+                textAnchor="end"
+                height={80}
+                stroke="var(--foreground, #171717)"
+              />
+              <YAxis stroke="var(--foreground, #171717)" />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "var(--card-bg, #ffffff)",
+                  border: `1px solid var(--card-border, #e5e7eb)`,
+                  color: "var(--foreground, #171717)",
+                }}
+              />
               <Bar dataKey="count" fill="#10b981" />
             </BarChart>
           </ResponsiveContainer>

@@ -10,6 +10,7 @@ import {
   setSearchQuery,
 } from "@/app/store/slices/usersSlice";
 import { Button } from "@/app/components";
+import ThemeToggle from "@/app/components/ThemeToggle/ThemeToggle";
 import { fetchUsers } from "./api";
 import UserTable from "./components/UserTable";
 import AnalyticsCards from "./components/AnalyticsCards";
@@ -52,14 +53,50 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="flex justify-between items-center mb-6 bg-white p-4 rounded-lg shadow">
-        <h1 className="text-3xl font-bold text-gray-800">HR Dashboard</h1>
-        <Button onClick={handleLogout}>Logout</Button>
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "var(--background, #ffffff)",
+        padding: "1.5rem",
+        transition: "background-color 0.2s",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "1.5rem",
+          backgroundColor: "var(--card-bg, #ffffff)",
+          padding: "1rem",
+          borderRadius: "0.5rem",
+          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+          border: "1px solid var(--card-border, #e5e7eb)",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "1.875rem",
+            fontWeight: "700",
+            color: "var(--foreground)",
+          }}
+        >
+          HR Dashboard
+        </h1>
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <ThemeToggle />
+          <Button onClick={handleLogout}>Logout</Button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <div className="lg:col-span-3">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr 1fr",
+          gap: "1.5rem",
+        }}
+      >
+        <div style={{ gridColumn: "span 3" }}>
           <UserTable
             users={users}
             loading={loading}

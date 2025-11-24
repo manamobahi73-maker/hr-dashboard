@@ -33,12 +33,33 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "var(--background, #ffffff)",
+        color: "var(--foreground, #171717)",
+        transition: "background-color 0.2s, color 0.2s",
+      }}
+    >
       <Card className="w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
+        <h1
+          style={{
+            fontSize: "1.875rem",
+            fontWeight: "700",
+            textAlign: "center",
+            marginBottom: "1.5rem",
+            color: "var(--foreground, #171717)",
+          }}
+        >
           HR Dashboard Login
         </h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <form
+          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Controller
             name="username"
             control={control}
@@ -78,7 +99,15 @@ const LoginPage = () => {
             )}
           />
           {submitError && (
-            <p className="text-red-500 text-sm text-center">{submitError}</p>
+            <p
+              style={{
+                color: "#ef4444",
+                fontSize: "0.875rem",
+                textAlign: "center",
+              }}
+            >
+              {submitError}
+            </p>
           )}
           <Button type="submit">Login</Button>
         </form>
